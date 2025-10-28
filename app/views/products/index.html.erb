@@ -23,6 +23,10 @@
             </div>
         </div>
         <% end %>
+        
+        <div class="my-4">
+            <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+        </div>
         <% else %>
         <p class="text-center my-10">No products found.</p>
         <% end %>

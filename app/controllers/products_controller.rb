@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @pagy, @products = pagy(Product.with_associations.ordered, limit: 20)
   end
 
   # GET /products/1 or /products/1.json
@@ -60,7 +60,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params.expect(:id))
+      @product = Product.with_associations.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
