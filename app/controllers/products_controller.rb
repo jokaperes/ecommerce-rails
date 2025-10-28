@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @pagy, @products = pagy(Product.with_associations.ordered, limit: 20)
+    @pagy, @products = pagy(Product.with_associations.ordered, items: 20)
   end
 
   # GET /products/1 or /products/1.json
