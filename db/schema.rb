@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_03_031258) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_28_195905) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -54,6 +54,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_03_031258) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_products_on_created_at"
+    t.index ["name"], name: "index_products_on_name"
+    t.index ["price"], name: "index_products_on_price"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
